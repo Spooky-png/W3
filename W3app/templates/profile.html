@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+    .background{
+        height: 1000px;
+        background-image: url("{% static 'images/background2.jpg' %}");
+        background-size: cover;
+    }
+    .container{
+        background-color: darkgrey;
+    }
+    .header{
+        border-bottom: rgb(159, 20, 172) solid 2px;
+        padding-bottom: 20px;
+    }
+    .profileinfo{
+        color: rgb(159, 20, 172);
+        width: 500px;
+        display: inline-block;
+    }
+    a{
+        float: right;
+    }
+    .logoutbutton{
+        display: inline-block;
+        height: 25px;
+        width: 80px;
+        background-color: lightpink;
+        text-align: center;
+        color: white;
+        border-radius: 5px;
+    }
+    .dashboardbutton{
+        display: inline-block;
+        height: 50px;
+        width: 80px;
+        background-color: rgb(195, 204, 114);
+        text-align: center;
+        color: white;
+        border-radius: 5px;
+    }
+    .profilestats{
+        color:rgb(159, 20, 172);
+        display: inline-block;
+        vertical-align: top;
+    }
+    </style>
+</head>
+<body>
+<div class = "background">
+    <div class="container">
+        <div class = "header">
+            <a href= "/logout" class="logoutbutton">Log Out</a>
+            <a href= "/dashboard"class="dashboardbutton">Back to Dashboard</a>
+            <h5>Welcome, {{ user.alias }}!</h5>
+        </div>
+        <div class= "profileinfo">
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <img>
+            <form action="/editprofile" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Alias</label>
+                <textarea class="form-control" name="alias" cols="50" rows="1">{{user.alias}}</textarea>
+                <label>Description</label>
+                <textarea class="form-control" name="desc" cols="50" rows="3" placeholder="{{user.desc}}"></textarea>
+                <button type="submit" name="clicked" value="edit" class="btn btn-primary mb-2">Edit</button>
+            </div>
+            </form>
+            </div>
+            <div class= "profilestats">
+                <h4>Uploaded Fighters:</h4>
+                <ul>
+                {% for fighter in all_fighters %}
+                <li>img</li>
+                    <ul>
+                        <li>{{fighter.fightername}}</li>
+                        <li>{{fighter.fighterdesc}}</li>
+                    </ul>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
