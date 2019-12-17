@@ -69,14 +69,17 @@
                 {% endfor %}
             </ul>
             {% endif %}
-            <img>
-            <form action="/editprofile" method="POST">
+            {% if user.picture %}
+            <img src = "{{user.picture.url}}"alt="{{user.alias}}" width="100px">
+            {% endif %}
+            <form action="/editprofile" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
                 <label>Alias</label>
                 <textarea class="form-control" name="alias" cols="50" rows="1">{{user.alias}}</textarea>
                 <label>Description</label>
                 <textarea class="form-control" name="desc" cols="50" rows="3" placeholder="{{user.desc}}"></textarea>
+                <input type="file" name="picture"></input>
                 <button type="submit" name="clicked" value="edit" class="btn btn-primary mb-2">Edit</button>
             </div>
             </form>
@@ -85,7 +88,9 @@
                 <h4>Uploaded Fighters:</h4>
                 <ul>
                 {% for fighter in all_fighters %}
-                <li>img</li>
+                {% if fighter.picture %}
+                <li><img src="{{fighter.picture.url}}"alt="{{fighter.fightername}}"width="100px"></li>
+                {% endif %}
                     <ul>
                         <li>{{fighter.fightername}}</li>
                         <li>{{fighter.fighterdesc}}</li>

@@ -57,6 +57,7 @@ class User(models.Model):
     alias = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     desc = models.TextField()
+    picture = models.ImageField(upload_to="Users/pictures/", null=True, blank=True)
     password = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -66,7 +67,11 @@ class Fighter(models.Model):
     fightername = models.CharField(max_length=255)
     fighterdesc = models.TextField()
     votes = models.IntegerField()
+    picture = models.ImageField(upload_to="Fighters/pictures/", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     uploaded_by = models.ForeignKey(User, related_name="fighters", on_delete=models.CASCADE)
     objects= Validator()
+
+    def __str__(self):
+        return self.title

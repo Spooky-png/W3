@@ -50,16 +50,21 @@
             <a href= "/logout" class="logoutbutton">Log Out</a>
             <a href= "/dashboard" class="dashboardbutton">Back to Dashboard</a>
         </div>
-    <form action="/addfighter" method="POST">
+    <form action="/addfighter" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
-            <img>
             <label>Fighter Name</label>
             <textarea class="form-control" name="fightername" rows="1" cols="50"></textarea>
             <label>Description</label>
             <textarea class="form-control" name="fighterdesc" cols="50" rows="3"></textarea>
+            <input type="file" name="picture"></input>
             <button type="submit" name="clicked" value="addfighter" class="btn btn-primary mb-2">Add Fighter!</button>
     </form>
+        </div>
+        <div class="pictureneedsAjax?">
+            {% if picture %}
+            <img src="{{picture.url}}">
+            {% endif %}
         </div>
     </div>
 </div>

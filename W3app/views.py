@@ -3,6 +3,8 @@ from django.contrib import messages
 from .models import User, Fighter
 import bcrypt
 import random
+from django.core.files.storage import FileSystemStorage
+from .forms import UserForm
 
 def home(request):
     return render(request,"login.html")
@@ -41,9 +43,7 @@ def dashboard(request):
         return redirect ("/")
     else:
         context = {
-        "first" : Fighter.objects.first(),
-        "second" : Fighter.objects.get(id=2),
-        "third" : Fighter.objects.get(id=3),
+        "leader" : Fighter.objects.all().order_by("-votes"),
         "last" : Fighter.objects.last(),
         "count" : len(User.objects.all()),
         "user" : User.objects.get(id = request.session['user_id']),
@@ -65,8 +65,13 @@ def addfighter(request):
                 messages.error(request, value)
                 return redirect("/addfighter")
         else:
+            context = {}
+            uploaded_file = request.FILES["picture"]
+            fs = FileSystemStorage()
+            name = fs.save(uploaded_file.name,uploaded_file)
+            context['url'] = fs.url(name)
             user = User.objects.get(id = request.session['user_id'])
-            fighter = Fighter.objects.create(fightername=request.POST["fightername"],fighterdesc=request.POST["fighterdesc"],uploaded_by=user)
+            fighter = Fighter.objects.create(fightername=request.POST["fightername"],fighterdesc=request.POST["fighterdesc"],picture=request.FILES["picture"],votes=0,uploaded_by=user)
         return redirect("/dashboard")
 
 def fight(request):
@@ -98,7 +103,13 @@ def editprofile(request):
                 messages.error(request, value)
                 return redirect("/editprofile")
         else:
+            context = {}
+            uploaded_file = request.FILES['picture']
+            fs = FileSystemStorage()
+            name = fs.save(uploaded_file.name,uploaded_file)
+            context['url'] = fs.url(name)
             user = User.objects.get(id = request.session['user_id'])
+            user.picture = request.FILES['picture']
             user.alias = request.POST['alias']
             user.desc = request.POST['desc']
             user.save()
@@ -110,3 +121,6 @@ def vote(request, fighter_id):
     fighter.votes = fighter.votes + 1
     fighter.save()
     return redirect("/fight")
+
+def upload(request):
+    return render(request,"upload.html")

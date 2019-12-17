@@ -56,11 +56,11 @@
         border-radius: 5px;
     }
     .overallstats{
-        margin-right: 300px;
-        vertical-align: top;
+        margin-right: 100px;
         display: inline-block;
     }
     .leaderboard{
+        vertical-align: top;
         width: 500px;
         display: inline-block;
     }
@@ -84,34 +84,37 @@
             <h5>Welcome, {{ user.alias }}!</h5>
         </div>
         <div class= "overallstats">
+            <h2>Leader: {{leader.first.fightername}}</h2>
+            {% if leader.first.picture %}
+            <img src ="{{leader.first.picture.url}}" alt="{{leader.first.fightername}}" width="100px">
+            {% endif %}
             <h3>Total Users:{{count}}</h3>
             <h3>Total Fighters:{{totalfighters}}</h3>
             <h3>Newest User: {{newest.alias}}</h3>
             <h3>Newest Fighter: {{newestfighter.fightername}}</h3>
+            <img src = "{{last.picture.url}}"alt="{{last.fightername}}" width="100px">
         </div>
         <div class="leaderboard">
-            <h1>Leader</h1>
+            <h1>Leaderboard</h1>
             <img>
-            <h3>Fighter: {{first.fightername}}</h3>
-            <h3>Total wins: {{first.votes}}</h3>
-            <h3>Created at: {{first.created_at}}</h3>
-            <h3>Description: {{first.fighterdesc}}</h3>
-            <h3>Uploaded by: {{first.uploaded_by.alias}}</h3>
-            <br>
-            <h2>#2</h2>
-            <h4>Fighter: {{second.fightername}}</h4>
-            <h4>Total wins: {{second.votes}}</h4>
-            <h4>Created at: {{second.created_at}}</h4>
-            <h4>Description: {{second.fighterdesc}}</h4>
-            <h4>Uploaded by: {{second.uploaded_by.alias}}</h4>
-            <br>
-            <h3>#3</h3>
-            <p>Fighter: {{third.fightername}}</p>
-            <p>Total wins: {{third.votes}}</p>
-            <p>Created at: {{third.created_at}}</p>
-            <p>Description: {{third.fighterdesc}}</p>
-            <p>Uploaded by: {{third.uploaded_by.alias}}</p>
-            <p>Loser: {{last.fightername}}</p>
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Fighter</th>
+                    <th scope="col">Votes</th>
+                    <th scope="col">Uploaded by:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    {% for fighter in leader %}
+                    <td>{{fighter.fightername}}</td>
+                    <td>{{fighter.votes}}</td>
+                    <td>{{fighter.uploaded_by.alias}}</td>
+                  </tr>
+                  {% endfor %}
+            </tbody>
+            </table>
         </div>
     </div>
 </div>
