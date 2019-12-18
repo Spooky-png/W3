@@ -4,72 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Leaderboard</title>
+    <title>Dashboard</title>
     {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
     <style>
     .background{
-        height: 1000px;
-        background-image: url("{% static 'images/background.jpg' %}");
-        background-size: cover;
-    }
-    .container{
-        background-color: darkgrey;
-    }
-    .logoutbutton{
-        display: inline-block;
-        height: 25px;
-        width: 80px;
-        background-color: lightpink;
-        text-align: center;
-        color: white;
-        border-radius: 5px;
-    }
-    a{
-        float: right;
-    }
-    .addfighterbutton{
-        display: inline-block;
-        height: 50px;
-        width: 80px;
-        background-color: rgb(153, 55, 137);
-        text-align: center;
-        color: white;
-        border-radius: 5px;
-    }
-    .editprofilebutton{
-        display: inline-block;
-        height: 25px;
-        width: 80px;
-        background-color: rgb(90, 136, 110);
-        text-align: center;
-        color: white;
-        border-radius: 5px;
-    }
-    .fightbutton{
-        display: inline-block;
-        height: 50px;
-        width: 80px;
-        background-color: rgb(168, 26, 26);
-        text-align: center;
-        color: white;
-        border-radius: 5px;
-    }
-    .overallstats{
-        margin-right: 100px;
-        display: inline-block;
-    }
-    .leaderboard{
-        vertical-align: top;
-        width: 500px;
-        display: inline-block;
-    }
-    .header{
-        border-bottom: rgb(159, 20, 172) solid 2px;
-        padding-bottom: 20px;
-    }
-    h1{
-        color: rgb(252, 202, 77);
+    height: 1000px;
+    background-image: url("{% static 'images/background.gif' %}");
+    background-size: cover;
     }
     </style>
 </head>

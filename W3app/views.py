@@ -92,6 +92,7 @@ def editprofile(request):
             return redirect ("/")
         else:
             context = {
+            "leader" : Fighter.objects.all().filter(uploaded_by=request.session['user_id']).order_by("-votes"),
             "all_fighters" : Fighter.objects.filter(uploaded_by=request.session['user_id']),
             "user" : User.objects.get(id = request.session['user_id'])
         }

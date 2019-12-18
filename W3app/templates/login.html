@@ -8,39 +8,42 @@
     {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-        .form-group{
-            color: rgb(183, 15, 189);
-            background-color: rgb(66, 66, 66);
-            border: 2px solid rgb(183, 15, 189);;
-            width: 500px;
-            display: inline-block;
-            margin: 100px;
-        }
-        .form-group2{
-            color: rgb(183, 15, 189);
-            background-color: rgb(66, 66, 66);
-            border: 2px solid rgb(183, 15, 189);
-            width: 500px;
-            display: inline-block;
-            vertical-align: top;
-            margin: 100px;
-        }
-        button{
-            margin-top: 50px;
-        }
-        form{
-            display: inline-block;
-            vertical-align: top;
-        }
-        h1{
-            background-color: rgb(13, 153, 196);
-            color: seashell
-        }
-        .background{
-            height: 1000px;
-            background-image: url("{% static 'images/background5.jpg' %}");
-            background-size: cover;
-        }
+    .form-group{
+        color: rgb(183, 15, 189);
+        background-image: linear-gradient(white, black);
+        border: 2px solid rgb(183, 15, 189);
+        width: 500px;
+        display: inline-block;
+        margin: 100px;
+    }
+    .form-group2{
+        color: rgb(183, 15, 189);
+        background-image: linear-gradient(white, black);
+        border: 2px solid rgb(183, 15, 189);
+        width: 500px;
+        display: inline-block;
+        vertical-align: top;
+        margin: 100px;
+    }
+    .messages{
+    color: red;
+    }
+    button{
+        margin-top: 50px;
+    }
+    form{
+        display: inline-block;
+        vertical-align: top;
+    }
+    h1{
+        background-image: linear-gradient(to right,white, rgb(54, 140, 190));
+        color: black;
+    }
+    .background{
+        height: 800px;
+        background-image: url("{% static 'images/background2.gif' %}");
+        background-size:cover;
+    }
     </style>
 </head>
 <body>

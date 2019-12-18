@@ -4,59 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fight!</title>
+    <title>Vote for a Fighter!</title>
     {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/vote.css' %}">
     <style>
     .background{
         height: 1000px;
-        background-image: url("{% static 'images/background4.jpg' %}");
+        background-image: url("{% static 'images/background4.gif' %}");
         background-size: cover;
-    }
-    .container{
-        background-color: darkgrey;
-    }
-    .left{
-        margin-right: 150px;
-        max-width: 300px;
-        color: red;
-        display: inline-block;
-    }
-    .middle{
-        margin-right: 150px;
-        color: gold;
-        display: inline-block;
-    }
-    .right{
-        max-width: 300px;
-        vertical-align: top;
-        color: blue;
-        display: inline-block;
-    }
-    .logoutbutton{
-        display: inline-block;
-        height: 25px;
-        width: 80px;
-        background-color: lightpink;
-        text-align: center;
-        color: white;
-        border-radius: 5px;
-    }
-    .dashboardbutton{
-        display: inline-block;
-        height: 50px;
-        width: 80px;
-        background-color: rgb(195, 204, 114);
-        text-align: center;
-        color: white;
-        border-radius: 5px;
-    }
-    a{
-        float: right;
-    }
-    .header{
-        border-bottom: rgb(159, 20, 172) solid 2px;
-        padding-bottom: 20px;
     }
     </style>
 </head>
@@ -71,7 +27,7 @@
         <div class="left">
             <a href="/vote/{{fighter1.id}}">Vote {{fighter1.fightername}}!</a>
             {% if fighter1.picture %}
-            <img src = "{{fighter1.picture.url}}"alt="{{fighter1.fightername}}" width="300px">
+            <a href="/vote/{{fighter1.id}}"><img src = "{{fighter1.picture.url}}"alt="{{fighter1.fightername}}" width="300px"></a>
             {% endif %}
             <h2>{{fighter1.fightername}}</h2>
             <h3>{{fighter1.fighterdesc}}</h3>
@@ -82,7 +38,7 @@
         <div class="right">
             <a href="/vote/{{fighter2.id}}">Vote {{fighter2.fightername}}!</a>
             {% if fighter2.picture %}
-            <img src = "{{fighter2.picture.url}}"alt="{{fighter2.fightername}}" width="300px">
+            <a href="/vote/{{fighter2.id}}"><img src = "{{fighter2.picture.url}}"alt="{{fighter2.fightername}}" width="300px"></a>
             {% endif %}
             <h2>{{fighter2.fightername}}</h2>
             <h3>{{fighter2.fighterdesc}}</h3>

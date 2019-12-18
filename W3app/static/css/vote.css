@@ -1,0 +1,49 @@
+.container{
+    background-image: linear-gradient(rgb(255, 255, 255, 1), rgb(0, 0, 0, .75));
+}
+.left{
+    margin-right: 150px;
+    max-width: 300px;
+    color: red;
+    display: inline-block;
+}
+.middle{
+    margin-top: 200px;
+    vertical-align: top;
+    margin-right: 150px;
+    color: gold;
+    display: inline-block;
+}
+.right{
+    max-width: 300px;
+    vertical-align: top;
+    color: blue;
+    display: inline-block;
+}
+.logoutbutton{
+    display: inline-block;
+    height: 25px;
+    width: 80px;
+    background-color: lightpink;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 6px 0px #e97070, 0px 3px 15px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+}
+.dashboardbutton{
+    display: inline-block;
+    height: 50px;
+    width: 80px;
+    background-color: rgb(195, 204, 114);
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 6px 0px #8f9136, 0px 3px 15px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+}
+a{
+    float: right;
+}
+.header{
+    border-bottom: rgb(159, 20, 172) solid 2px;
+    padding-bottom: 25px;
+}

@@ -7,49 +7,12 @@
     <title>Profile</title>
     {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
     <style>
     .background{
-        height: 1000px;
-        background-image: url("{% static 'images/background2.jpg' %}");
-        background-size: cover;
-    }
-    .container{
-        background-color: darkgrey;
-    }
-    .header{
-        border-bottom: rgb(159, 20, 172) solid 2px;
-        padding-bottom: 20px;
-    }
-    .profileinfo{
-        color: rgb(159, 20, 172);
-        width: 500px;
-        display: inline-block;
-    }
-    a{
-        float: right;
-    }
-    .logoutbutton{
-        display: inline-block;
-        height: 25px;
-        width: 80px;
-        background-color: lightpink;
-        text-align: center;
-        color: white;
-        border-radius: 5px;
-    }
-    .dashboardbutton{
-        display: inline-block;
-        height: 50px;
-        width: 80px;
-        background-color: rgb(195, 204, 114);
-        text-align: center;
-        color: white;
-        border-radius: 5px;
-    }
-    .profilestats{
-        color:rgb(159, 20, 172);
-        display: inline-block;
-        vertical-align: top;
+    height: 1000px;
+    background-image: url("{% static 'images/background5.gif' %}");
+    background-size: cover;
     }
     </style>
 </head>
@@ -80,9 +43,11 @@
                 <label>Description</label>
                 <textarea class="form-control" name="desc" cols="50" rows="3" placeholder="{{user.desc}}"></textarea>
                 <input type="file" name="picture"></input>
-                <button type="submit" name="clicked" value="edit" class="btn btn-primary mb-2">Edit</button>
+                <button type="submit" value="edit" class="editbutton">Edit</button>
             </div>
             </form>
+            <h5>Your most popular fighter: {{leader.first.fightername}} with {{leader.first.votes}} votes.</h5>
+            <img src="{{leader.first.picture.url}}" alt="leader.first.fightername" width="100px">
             </div>
             <div class= "profilestats">
                 <h4>Uploaded Fighters:</h4>
