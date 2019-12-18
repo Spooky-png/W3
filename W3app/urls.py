@@ -12,6 +12,7 @@ urlpatterns = [
     path(r'editprofile', views.editprofile),
     path(r'fight', views.fight),
     path(r'addfighter', views.addfighter),
+    path(r'viewprofile/<int:user_id>', views.viewprofile),
     path(r'vote/<int:fighter_id>', views.vote),
     path(r'upload', views.upload)
 ]

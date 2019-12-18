@@ -125,3 +125,12 @@ def vote(request, fighter_id):
 
 def upload(request):
     return render(request,"upload.html")
+
+def viewprofile(request, user_id):
+    user_id=user_id
+    context = {
+            "leader" : Fighter.objects.all().filter(uploaded_by=user_id).order_by("-votes"),
+            "all_fighters" : Fighter.objects.filter(uploaded_by=user_id),
+            "user" : User.objects.get(id = user_id)
+        }
+    return render(request,"viewprofile.html", context)

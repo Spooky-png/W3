@@ -8,12 +8,14 @@
     {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{% static 'js/dashboard.js' %}"></script>
     <style>
-    .background{
-    height: 1000px;
-    background-image: url("{% static 'images/background.gif' %}");
-    background-size: cover;
-    }
+        .background{
+        height: 1000px;
+        background-image: url("{% static 'images/background.gif' %}");
+        background-size: cover;
+        }
     </style>
 </head>
 <body>
@@ -31,16 +33,15 @@
             {% if leader.first.picture %}
             <img src ="{{leader.first.picture.url}}" alt="{{leader.first.fightername}}" width="100px">
             {% endif %}
-            <h3>Total Users:{{count}}</h3>
-            <h3>Total Fighters:{{totalfighters}}</h3>
-            <h3>Newest User: {{newest.alias}}</h3>
+            <h3>Total Users: {{count}}</h3>
+            <h3>Total Fighters: {{totalfighters}}</h3>
+            <h3>Newest User: <a style="color:rgb(182, 7, 7);" href="/viewprofile/{{newest.id}}">{{newest.alias}}</a></h3>
             <h3>Newest Fighter: {{newestfighter.fightername}}</h3>
             <img src = "{{last.picture.url}}"alt="{{last.fightername}}" width="100px">
         </div>
-        <div class="leaderboard">
+        <div id="contain">
             <h1>Leaderboard</h1>
-            <img>
-            <table class="table table-dark">
+            <table id="table_scroll">
                 <thead>
                   <tr>
                     <th scope="col">Fighter</th>
@@ -53,10 +54,11 @@
                     {% for fighter in leader %}
                     <td>{{fighter.fightername}}</td>
                     <td>{{fighter.votes}}</td>
-                    <td>{{fighter.uploaded_by.alias}}</td>
+                    <td><a style="color:yellow;" href="/viewprofile/{{fighter.uploaded_by.id}}">{{fighter.uploaded_by.alias}}</a></td>
                   </tr>
                   {% endfor %}
             </tbody>
+        </div>
             </table>
         </div>
     </div>
