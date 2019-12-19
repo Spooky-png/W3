@@ -4,7 +4,6 @@ from .models import User, Fighter
 import bcrypt
 import random
 from django.core.files.storage import FileSystemStorage
-from .forms import UserForm
 
 def home(request):
     return render(request,"login.html")

@@ -10,15 +10,10 @@
     <link rel="stylesheet" href="{% static 'css/upload.css' %}">
     <style>
     .background{
-        height: 800px;
+        height: 1000px;
         background-image: url("{% static 'images/background6.gif' %}");
         background-size: cover;
     }
-    .form-group{
-    margin: 0px auto;
-    color: rgb(180, 27, 27);
-    width: 500px;
-}
     </style>
 </head>
 <body>
@@ -35,17 +30,17 @@
             {% endfor %}
         </ul>
         {% endif %}
-    <form action="/addfighter" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group">
-            <label>Fighter Name</label>
-            <textarea class="form-control" name="fightername" rows="1" cols="50"></textarea>
-            <label>Description</label>
-            <textarea class="form-control" name="fighterdesc" cols="50" rows="3"></textarea>
-            <input type="file" name="picture"></input>
-            <button type="submit" name="clicked" value="addfighter" class="btn btn-danger mb-2">Add Fighter!</button>
-    </form>
-        </div>
+        <form action="/addfighter" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Fighter Name</label>
+                <textarea class="form-control" name="fightername" rows="1" cols="50"></textarea>
+                <label>Description</label>
+                <textarea class="form-control" name="fighterdesc" cols="50" rows="3"></textarea>
+                <input type="file" name="picture"></input>
+                <button type="submit" name="clicked" value="addfighter" class="btn btn-danger mb-2">Add Fighter!</button>
+            </div>
+        </form>
     </div>
 </div>
 </body>

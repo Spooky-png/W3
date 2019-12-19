@@ -12,7 +12,7 @@
     <script src="{% static 'js/dashboard.js' %}"></script>
     <style>
         .background{
-        height: 1000px;
+        height: 100%;
         background-image: url("{% static 'images/background.gif' %}");
         background-size: cover;
         }
@@ -30,12 +30,12 @@
         </div>
         <div class= "overallstats">
             <h2>Leader: {{leader.first.fightername}}</h2>
-            <img src ="{{leader.first.picture.url}}" alt="{{leader.first.fightername}}" width="300px">
+            <img class="fighterbox" src ="{{leader.first.picture.url}}" alt="{{leader.first.fightername}}" width="300px">
             <h3>Total Users: {{count}}</h3>
             <h3>Total Fighters: {{totalfighters}}</h3>
             <h3>Newest User: <a style="color:rgb(119, 207, 241);" href="/viewprofile/{{newest.id}}">{{newest.alias}}</a></h3>
             <h3>Newest Fighter: {{newestfighter.fightername}}</h3>
-            <img src = "{{last.picture.url}}"alt="{{last.fightername}}" width="200px">
+            <img class="fighterbox" src = "{{last.picture.url}}"alt="{{last.fightername}}" width="200px">
         </div>
         <div id="contain">
             <h1>Leaderboard</h1>
@@ -55,11 +55,11 @@
                     <td><a style="color:yellow;" href="/viewprofile/{{fighter.uploaded_by.id}}">{{fighter.uploaded_by.alias}}</a></td>
                   </tr>
                   {% endfor %}
-            </tbody>
-        </div>
+                </tbody>
             </table>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>

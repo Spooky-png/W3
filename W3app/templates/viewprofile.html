@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
     <style>
     .background{
-    height: 1000px;
+    height: 100%;
     background-image: url("{% static 'images/background5.gif' %}");
     background-size: cover;
     }
@@ -45,21 +45,20 @@
             {% if leader.first.picture %}
             <img class="fighterbox" src="{{leader.first.picture.url}}" alt="leader.first.fightername" width="100px">
             {% endif %}
-            </div>
-            <div class= "profilestats">
-                <h4>Uploaded Fighters:</h4>
+        </div>
+        <div class= "profilestats">
+            <h4>Uploaded Fighters:</h4>
+            <ul>
+            {% for fighter in all_fighters %}
+            {% if fighter.picture %}
+            <li><img class="fighterbox" src="{{fighter.picture.url}}"alt="{{fighter.fightername}}"width="100px"></li>
+            {% endif %}
                 <ul>
-                {% for fighter in all_fighters %}
-                {% if fighter.picture %}
-                <li><img class="fighterbox" src="{{fighter.picture.url}}"alt="{{fighter.fightername}}"width="100px"></li>
-                {% endif %}
-                    <ul>
-                        <li class="bigname">{{fighter.fightername}}</li>
-                        <li><p>{{fighter.fighterdesc}}</p></li>
-                    </ul>
-                {% endfor %}
+                    <li class="bigname">{{fighter.fightername}}</li>
+                    <li><p>{{fighter.fighterdesc}}</p></li>
                 </ul>
-            </div>
+            {% endfor %}
+            </ul>
         </div>
     </div>
 </div>

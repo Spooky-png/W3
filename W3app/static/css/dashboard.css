@@ -54,13 +54,13 @@
     width: 100%;
     display: inline-block;
     overflow-y: auto;
-  }
+}
 #contain{
     display: inline-block;
     max-width: 600px;
     height: 700px;
     overflow-y:scroll;
-  }
+}
 .header{
     border-bottom: rgb(105, 105, 105) solid 2px;
     padding-bottom: 25px;
@@ -83,7 +83,11 @@ td{
     height: 1000px;
     background-image: url("{% static 'images/background.gif' %}");
     background-size: cover;
-    }
+}
 h6{
-        font-style: oblique;
-    }
+    font-style: oblique;
+}
+.fighterbox{
+    padding: 1px;
+    border: 1px rgb(114, 85, 11) solid;
+}

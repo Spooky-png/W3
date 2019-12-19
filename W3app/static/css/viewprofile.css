@@ -6,8 +6,9 @@
     padding-bottom: 25px;
 }
 .profileinfo{
+    min-height: 800px;
     padding: 10px;
-    color: rgb(232, 0, 253);
+    color: rgb(217, 38, 233);
     width: 500px;
     display: inline-block;
 }
@@ -35,8 +36,9 @@ a{
     box-shadow: 0px 6px 0px #8f9136, 0px 3px 15px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
 }
 .profilestats{
+    min-height: 800px;
     width: 500px;
-    color:rgb(159, 20, 172);
+    color:rgb(217, 38, 233);
     display: inline-block;
     vertical-align: top;
     border-left: rgb(34, 211, 235) solid 2px;
