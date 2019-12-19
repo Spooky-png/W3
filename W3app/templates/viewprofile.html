@@ -40,6 +40,7 @@
                 <h4>{{user.name}}</h4>
                 <p>{{user.desc}}</p>
             </div>
+            <h5>{{user.alias}}'s total votes: {{user.totalvotes}}</h5>
             <h5>{{user.alias}}'s most popular fighter: {{leader.first.fightername}} with {{leader.first.votes}} votes.</h5>
             {% if leader.first.picture %}
             <img src="{{leader.first.picture.url}}" alt="leader.first.fightername" width="100px">

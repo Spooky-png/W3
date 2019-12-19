@@ -38,4 +38,14 @@ a{
     color:rgb(159, 20, 172);
     display: inline-block;
     vertical-align: top;
+    border-left: rgb(34, 211, 235) solid 2px;
+}
+.bigname{
+    border-bottom: 1px rgb(0, 0, 0) solid;
+    font-size: 30px;
+    display: inline-block;
+}
+.fighterbox{
+    padding: 1px;
+    border: 1px rgb(114, 85, 11) solid;
 }

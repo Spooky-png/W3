@@ -78,11 +78,12 @@ def fight(request):
     if "user_id" not in request.session:
         return redirect ("/")
     else:
+        fighter1 = random.choice(Fighter.objects.all())
         context = {
         "user" : User.objects.get(id = request.session['user_id']),
         "all_fighters" : Fighter.objects.all(),
         "fighter1" : random.choice(Fighter.objects.all()),
-        "fighter2" : random.choice(Fighter.objects.exclude())
+        "fighter2" : random.choice(Fighter.objects.exclude(id=fighter1.id))
     }
     return render(request, "vote.html", context)
 
@@ -117,6 +118,9 @@ def editprofile(request):
         return redirect("/dashboard")
 
 def vote(request, fighter_id):
+    user = User.objects.get(id=request.session["user_id"])
+    user.totalvotes = user.totalvotes + 1
+    user.save()
     fighter_id = fighter_id
     fighter = Fighter.objects.get(id=fighter_id)
     fighter.votes = fighter.votes + 1

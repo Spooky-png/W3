@@ -46,6 +46,7 @@
                 <button type="submit" value="edit" class="editbutton">Edit</button>
             </div>
             </form>
+            <h5>Your total votes: {{user.totalvotes}}</h5>
             <h5>Your most popular fighter: {{leader.first.fightername}} with {{leader.first.votes}} votes.</h5>
             <img src="{{leader.first.picture.url}}" alt="leader.first.fightername" width="100px">
             </div>
@@ -54,10 +55,10 @@
                 <ul>
                 {% for fighter in all_fighters %}
                 {% if fighter.picture %}
-                <li><img src="{{fighter.picture.url}}"alt="{{fighter.fightername}}"width="100px"></li>
+                <li><img class="fighterbox"src="{{fighter.picture.url}}"alt="{{fighter.fightername}}"width="100px"></li>
                 {% endif %}
                     <ul>
-                        <li>{{fighter.fightername}}</li>
+                        <li class="bigname">{{fighter.fightername}}</li>
                         <li>{{fighter.fighterdesc}}</li>
                     </ul>
                 {% endfor %}

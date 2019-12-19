@@ -50,12 +50,12 @@
     color: rgb(182, 7, 7);
     vertical-align: top;
     display: inline-block;
+    border-right: rgb(159, 20, 172) solid 2px;
 }
 #table_scroll{
     width: 100%;
     display: inline-block;
     overflow-y: auto;
-    border-left: rgb(159, 20, 172) solid 2px;
   }
 #contain{
     display: inline-block;

@@ -57,6 +57,7 @@ class User(models.Model):
     alias = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     desc = models.TextField()
+    totalvotes = models.IntegerField()
     picture = models.ImageField(upload_to="Users/pictures/", null=True, blank=True)
     password = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
