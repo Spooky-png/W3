@@ -11,9 +11,14 @@
     <style>
     .background{
         height: 800px;
-        background-image: url("{% static 'images/background3.gif' %}");
+        background-image: url("{% static 'images/background6.gif' %}");
         background-size: cover;
     }
+    .form-group{
+    margin: 0px auto;
+    color: rgb(180, 27, 27);
+    width: 500px;
+}
     </style>
 </head>
 <body>
@@ -38,7 +43,7 @@
             <label>Description</label>
             <textarea class="form-control" name="fighterdesc" cols="50" rows="3"></textarea>
             <input type="file" name="picture"></input>
-            <button type="submit" name="clicked" value="addfighter" class="btn btn-primary mb-2">Add Fighter!</button>
+            <button type="submit" name="clicked" value="addfighter" class="btn btn-danger mb-2">Add Fighter!</button>
     </form>
         </div>
     </div>

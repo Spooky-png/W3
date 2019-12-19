@@ -33,17 +33,17 @@
             </ul>
             {% endif %}
             {% if user.picture %}
-            <img src = "{{user.picture.url}}"alt="{{user.alias}}" width="100px">
+            <img src = "{{user.picture.url}}"alt="{{user.alias}}" width="300px">
             {% endif %}
             <div class="profileinformation">
-                <h3>{{user.alias}}</h3>
+                <h3 class="bigname">{{user.alias}}</h3>
                 <h4>{{user.name}}</h4>
                 <p>{{user.desc}}</p>
             </div>
             <h5>{{user.alias}}'s total votes: {{user.totalvotes}}</h5>
             <h5>{{user.alias}}'s most popular fighter: {{leader.first.fightername}} with {{leader.first.votes}} votes.</h5>
             {% if leader.first.picture %}
-            <img src="{{leader.first.picture.url}}" alt="leader.first.fightername" width="100px">
+            <img class="fighterbox" src="{{leader.first.picture.url}}" alt="leader.first.fightername" width="100px">
             {% endif %}
             </div>
             <div class= "profilestats">
@@ -51,11 +51,11 @@
                 <ul>
                 {% for fighter in all_fighters %}
                 {% if fighter.picture %}
-                <li><img src="{{fighter.picture.url}}"alt="{{fighter.fightername}}"width="100px"></li>
+                <li><img class="fighterbox" src="{{fighter.picture.url}}"alt="{{fighter.fightername}}"width="100px"></li>
                 {% endif %}
                     <ul>
-                        <li>{{fighter.fightername}}</li>
-                        <li>{{fighter.fighterdesc}}</li>
+                        <li class="bigname">{{fighter.fightername}}</li>
+                        <li><p>{{fighter.fighterdesc}}</p></li>
                     </ul>
                 {% endfor %}
                 </ul>

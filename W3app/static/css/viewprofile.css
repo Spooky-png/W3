@@ -6,7 +6,8 @@
     padding-bottom: 25px;
 }
 .profileinfo{
-    color: rgb(159, 20, 172);
+    padding: 10px;
+    color: rgb(232, 0, 253);
     width: 500px;
     display: inline-block;
 }
@@ -48,4 +49,7 @@ a{
 .fighterbox{
     padding: 1px;
     border: 1px rgb(114, 85, 11) solid;
+}
+p{
+    font-style: oblique;
 }

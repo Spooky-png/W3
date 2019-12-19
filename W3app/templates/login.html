@@ -35,7 +35,7 @@
         display: inline-block;
         vertical-align: top;
     }
-    h1{
+    h2{
         background-image: linear-gradient(to right,white, rgb(54, 140, 190));
         color: black;
     }
@@ -43,6 +43,12 @@
         height: 800px;
         background-image: url("{% static 'images/background2.gif' %}");
         background-size:cover;
+    }
+    h1{
+        text-align: center;
+        background: -webkit-linear-gradient(yellow, red);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     </style>
 </head>
@@ -55,10 +61,11 @@
         {% endfor %}
     </ul>
     {% endif %}
+    <h1>W3: Who Would Win?</h1>
     <form action="/register" method="POST">
         {% csrf_token %}
         <div class="form-group">
-            <h1>Registration</h1>
+            <h2>Registration</h2>
             <label>Name</label>
             <input type="text" name="name" class="form-control">
             <label>Alias</label>
@@ -75,7 +82,7 @@
     <form action="/login" method="POST">
         {% csrf_token %}
         <div class="form-group2">
-            <h1>Log In</h1>
+            <h2>Log In</h2>
             <label>Email address</label>
             <input type="text" class="form-control" name = "email">
             <label>Password</label>

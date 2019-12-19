@@ -25,10 +25,7 @@
             <h5>Welcome, {{ user.alias }}!</h5>
         </div>
         <div class="left">
-            <a href="/vote/{{fighter1.id}}">Vote {{fighter1.fightername}}!</a>
-            {% if fighter1.picture %}
             <a href="/vote/{{fighter1.id}}"><img src = "{{fighter1.picture.url}}"alt="{{fighter1.fightername}}" width="300px"></a>
-            {% endif %}
             <h2>{{fighter1.fightername}}</h2>
             <h3>{{fighter1.fighterdesc}}</h3>
         </div>
@@ -36,10 +33,7 @@
             <h1>VS.</h1>
         </div>
         <div class="right">
-            <a href="/vote/{{fighter2.id}}">Vote {{fighter2.fightername}}!</a>
-            {% if fighter2.picture %}
             <a href="/vote/{{fighter2.id}}"><img src = "{{fighter2.picture.url}}"alt="{{fighter2.fightername}}" width="300px"></a>
-            {% endif %}
             <h2>{{fighter2.fightername}}</h2>
             <h3>{{fighter2.fighterdesc}}</h3>
         </div>

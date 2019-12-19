@@ -71,19 +71,20 @@ def addfighter(request):
             name = fs.save(uploaded_file.name,uploaded_file)
             context['url'] = fs.url(name)
             user = User.objects.get(id = request.session['user_id'])
-            fighter = Fighter.objects.create(fightername=request.POST["fightername"],fighterdesc=request.POST["fighterdesc"],picture=request.FILES["picture"],votes=0,uploaded_by=user)
+            Fighter.objects.create(fightername=request.POST["fightername"],fighterdesc=request.POST["fighterdesc"],picture=request.FILES["picture"],votes=0,uploaded_by=user)
         return redirect("/dashboard")
 
 def fight(request):
     if "user_id" not in request.session:
         return redirect ("/")
     else:
-        fighter1 = random.choice(Fighter.objects.all())
+        d = Fighter.objects.all()
+        fighters = random.sample(list(d),k=2)
         context = {
         "user" : User.objects.get(id = request.session['user_id']),
         "all_fighters" : Fighter.objects.all(),
-        "fighter1" : random.choice(Fighter.objects.all()),
-        "fighter2" : random.choice(Fighter.objects.exclude(id=fighter1.id))
+        "fighter1" : fighters[0],
+        "fighter2" : fighters[1]
     }
     return render(request, "vote.html", context)
 

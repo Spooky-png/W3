@@ -30,14 +30,12 @@
         </div>
         <div class= "overallstats">
             <h2>Leader: {{leader.first.fightername}}</h2>
-            {% if leader.first.picture %}
-            <img src ="{{leader.first.picture.url}}" alt="{{leader.first.fightername}}" width="100px">
-            {% endif %}
+            <img src ="{{leader.first.picture.url}}" alt="{{leader.first.fightername}}" width="300px">
             <h3>Total Users: {{count}}</h3>
             <h3>Total Fighters: {{totalfighters}}</h3>
-            <h3>Newest User: <a style="color:rgb(182, 7, 7);" href="/viewprofile/{{newest.id}}">{{newest.alias}}</a></h3>
+            <h3>Newest User: <a style="color:rgb(119, 207, 241);" href="/viewprofile/{{newest.id}}">{{newest.alias}}</a></h3>
             <h3>Newest Fighter: {{newestfighter.fightername}}</h3>
-            <img src = "{{last.picture.url}}"alt="{{last.fightername}}" width="100px">
+            <img src = "{{last.picture.url}}"alt="{{last.fightername}}" width="200px">
         </div>
         <div id="contain">
             <h1>Leaderboard</h1>
@@ -52,7 +50,7 @@
                 <tbody>
                   <tr>
                     {% for fighter in leader %}
-                    <td>{{fighter.fightername}}</td>
+                    <td><h6>{{fighter.fightername}}</h6></td>
                     <td>{{fighter.votes}}</td>
                     <td><a style="color:yellow;" href="/viewprofile/{{fighter.uploaded_by.id}}">{{fighter.uploaded_by.alias}}</a></td>
                   </tr>
