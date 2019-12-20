@@ -75,4 +75,4 @@ class Fighter(models.Model):
     objects= Validator()
 
     def __str__(self):
-        return self.fightername
+        return self.id
