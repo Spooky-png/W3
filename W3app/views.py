@@ -8,6 +8,9 @@ from django.core.files.storage import FileSystemStorage
 def home(request):
     return render(request,"login.html")
 
+def portfolio(request):
+    return render(request,"portfolio.html")
+    
 def logout(request):
     request.session.clear()
     return redirect ("/")

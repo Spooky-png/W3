@@ -14,7 +14,8 @@ urlpatterns = [
     path(r'addfighter', views.addfighter),
     path(r'viewprofile/<int:user_id>', views.viewprofile),
     path(r'vote/<int:fighter_id>', views.vote),
-    path(r'upload', views.upload)
+    path(r'upload', views.upload),
+    path(r'portfolio', views.portfolio)
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
